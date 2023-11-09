@@ -61,7 +61,7 @@ fn drawFrame(frame: [HEIGHT][WIDTH]Cell) !void {
                 .Dead => "\u{1B}[47m  \u{1B}[0m",
             });
         }
-        try stdout.print("\n", .{});
+        try stdout.writeAll("\n");
     }
 }
 
@@ -84,6 +84,6 @@ pub fn main() !void {
         try drawFrame(frame);
         frame = nextFrame(frame);
         try resetCursor();
-        std.time.sleep(1000 * 1000 * 100);
+        std.time.sleep(std.time.ns_per_s * 0.1);
     }
 }
