@@ -13,5 +13,5 @@
 > Install Zig compiler [her](https://ziglang.org/download/).
 
 ~~~shell
-zig build run
+zig build run -Doptimize=ReleaseSafe
 ~~~
