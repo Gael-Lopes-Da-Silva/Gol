@@ -3,6 +3,7 @@
 // @github: https://github.com/Gael-Lopes-Da-Silva/Gol
 
 const std = @import("std");
+const time = std.time;
 
 const WIDTH: i32 = 20;
 const HEIGHT: i32 = 20;
@@ -84,6 +85,6 @@ pub fn main() !void {
         try drawFrame(frame);
         frame = nextFrame(frame);
         try resetCursor();
-        std.time.sleep(std.time.ns_per_s * 0.1);
+        time.sleep(time.ns_per_s * 0.1);
     }
 }
