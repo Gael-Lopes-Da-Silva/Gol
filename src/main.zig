@@ -4,6 +4,7 @@
 
 const std = @import("std");
 const time = std.time;
+const io = std.io;
 
 const WIDTH: i32 = 20;
 const HEIGHT: i32 = 20;
@@ -53,7 +54,7 @@ fn nextFrame(frame: [HEIGHT][WIDTH]Cell) [HEIGHT][WIDTH]Cell {
 }
 
 fn drawFrame(frame: [HEIGHT][WIDTH]Cell) !void {
-    const stdout = std.io.getStdOut().writer();
+    const stdout = io.getStdOut().writer();
 
     for (frame) |row| {
         for (row) |cell| {
@@ -67,7 +68,7 @@ fn drawFrame(frame: [HEIGHT][WIDTH]Cell) !void {
 }
 
 fn resetCursor() !void {
-    const stdout = std.io.getStdOut().writer();
+    const stdout = io.getStdOut().writer();
     try stdout.print("\u{1B}[{}A", .{HEIGHT});
     try stdout.print("\u{1B}[{}D", .{WIDTH});
 }
